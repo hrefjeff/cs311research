@@ -1,0 +1,357 @@
+\documentclass[12pt]{scrreprt} 
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{mathtools}
+\usepackage{caption}
+\usepackage[margin=1in]{geometry}
+\usepackage{setspace}
+\doublespacing
+%\linespread {1.5}
+\captionsetup[figure]{labelformat=empty}
+\usetikzlibrary{automata,positioning}
+\PassOptionsToPackage{usenames,dvipsnames,svgnames}{xcolor}
+
+
+\begin{document} 
+
+\begin{titlepage}
+
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}} % Defines a new command for the horizontal lines, change thickness here
+
+\center % Center everything on the page
+
+%----------------------------------------------------------------------------------------
+%	HEADING SECTIONS
+%----------------------------------------------------------------------------------------
+
+\textsc{\LARGE University of North Alabama}\\[1.5cm] % Name of your university/college
+\textsc{\Large Computer Architecture and Orginization}\\[0.5cm] % Major heading such as course name
+
+%----------------------------------------------------------------------------------------
+%	TITLE SECTION
+%----------------------------------------------------------------------------------------
+
+\HRule \\[0.4cm]
+{ \huge \bfseries Cortex A15 Processor}\\[0.4cm] % Title of your document
+\HRule \\[1.5cm]
+ 
+%----------------------------------------------------------------------------------------
+%	AUTHOR SECTION
+%----------------------------------------------------------------------------------------
+
+\begin{minipage}{0.4\textwidth}
+\begin{flushleft} \large
+\emph{Author:}\\
+Jeffrey \textsc{Allen}
+\end{flushleft}
+\end{minipage}
+~
+\begin{minipage}{0.4\textwidth}
+\begin{flushright} \large
+\emph{Professor:} \\
+Dr. Patricia \textsc{Roden}
+\end{flushright}
+\end{minipage}\\[4cm]
+
+{\large \today}\\[3cm] % Date, change the \today to a set date if you want to be precise
+
+\vfill % Fill the rest of the page with whitespace
+
+\end{titlepage}
+
+\tableofcontents
+
+
+
+\chapter{History/Background of ARM Cortex-A15}
+
+	%From Guide to RISC Processors ch 8
+	% Describe very beginning
+	In 1985, the Acorn Computer Group birthed the ARM architecture in the United Kingdom. This was only the beginning to
+	the quick pace ARM began developing and evolving its architecture. Two short years afterwards, Acorn 
+	released its first RISC processor that was optimized for low-cost personal computers. Later, in 1990, ARM 
+	which originally stood for Acorn RISC Machine, developed its Advanced RISC Machine, which defined its 32-bit RISC-like
+	architecture.
+
+	% Describe middle to end in one paragraph
+	According to Linda Null and Julia Lobor there are multiple families of ARM architectures and processors. The reason for different
+	families depend on the applications of the architectures and processors. The architectures include include the ARM1, ARM2,
+	which span to the ARM11 architecture. The processors are also categorized into different "series". This includes the
+	M series, R series, and A series. The M series processors are optimized for microcontrollers. The R series has been designed
+	for embedded systems and real time applications. Whereas the A series, which includes the A15, has been designed to handle
+	full operating systems in third party applications.
+
+	
+
+	% Describe A15 in specific
+	
+	As for the ARM Cortex-A15 processor, it is the fourth generation in a family. It follows the A5, A7, and A9 processors.
+
+
+{\let\clearpage\relax\chapter{Memory Specifications}}
+%\chapter{Memory Specifications}
+
+	In reviewing the ARM Architecture Reference Manual ARMv7-A and ARMv7-R edition, the list of following data types are supported in memory:
+
+	% Chapter 14 in Cortex A15 technical reference manual (file : ./ArmCortex15_manual.pdf)
+	% A2.2 ARMv7 manual.
+
+	%************Need to center correctly*************
+	\begin{center}
+		\bfseries Byte \' 8 bits\\
+		\bfseries Halfword \' 16 bits\\
+		\bfseries Word \' 32 bits\\
+		\bfseries Doubleword \' 64 bits\\
+	\end{center}
+
+	Load and store operations are able to transfer bytes, halfwords, or words to and from memory. The loading of bytes or halfwords zero-extend
+	(pad with zeroes) or sign-extend (increasing number of bits of a binary number while preserving the number's sign and value) the data as it is loaded, or specified by the load instruction.
+
+	%3.8.1 
+	Instructions are word-algined.
+
+	%****Define word algined*****
+
+{\let\clearpage\relax\chapter{Instruction Sets}}
+%\chapter{Instruction Sets (Yes. Multiple.)}
+
+	I'll begin this section with explaining that an interface is an intermediary between two entities. Humans have utilized this concept in order to build rockets which have reached mars, create heart rate monitors, and even predict weather. A processor which is only designed to fetch, decode, and execute various instructions must first be able to understand what its supposed to do. Since humans and computers are worlds apart when it comes to communicating with each other, the Instruction Set Architecture interface was created. This interface saves humans from learning the exact strings of 0's and 1's the processor understands in order to carry out an instruction.
+	%In order to save humans from learning the exact format of bits which executes an instruction, the Instruction Set Architecture interface was created.
+	This is the agreed-upon interface designed for a machine essentially allows software to able to communicate with the hardware that executes it.
+	% from book
+
+	\section{RISC Vs. CISC}
+
+	% Dandamudi example pg 5
+	Two types of processor design philosophies include Reduced Instruction Set Computers (RISC) and Complex Instruction Set Computers (CISC).
+	CISC systems can be described through an example. Subtracting two integers is considered "simple". Then there is a type of instruction which 
+	can be found in a bubble sort. In array $ A $, copying one element $ \alpha $ located at $ A_{x} $ and "bubbling" it up in order to swap it
+	with another element located at $ A_{y} $ found to be the $ \alpha $'s correct position. CISC systems are based off of these complex 
+	instructions that performed multiple operations in a single instruction. These instructions which were used primarily in the 1950's through the 1970's and early 1980's because of the limitations of memory and cost ( 16KB of memory $\approx$ \textdollar500 ) which architecture designers were able to optimize all instructions for a specific task.
+
+	% Class Text / Dandamudi
+	RISC systems were designed with simplicity in mind, keeping all instructions small in order to execute the more efficiently. A notable
+	difference between the two philosophies is that RISC assumes that required operands are not in memory, but directly in the processor's
+	internal registers.
+
+	\section{Main ISA: ARMv7-A}
+
+	At the end of the day, it is all about communication. Moore's Law, stating that the density of transistors on an integrated circuit is doubling 
+	ever 18 months, is one of the main reasons why communication between humans and computers has changed, and continues to change so rapidly. This 
+	concept applied to the range of years between 1960 to 2014 describes a fair amount exponential increase in transitors, or methods of 
+	communication. As Linda Null and Julia Lobor point out though, RISC in today's society something of a misnomer. It can be said that 
+	almost all recently created instruction sets are a mixture of RISC's and CISC's. The main instruction set supported by the Cortex-A15 processor 
+	is the 32-bit ARMv7-A. 
+
+	\section{Extentions to ARMv7-A Instructions}
+
+	The A15 is designed with ability to decode different instruction sets. Depending on what "mode" of operation of execution the instruction . This mode is controlled by a simple switch of the designated T bit  J bit in the Current Program Status Register (CSPR). With the A15 having the ability to support multiple ISA's, this allows for is the Large Physical Address Extension (LPAE) architecture to enable virtual environments.
+
+	Why have support for virtual environments though? As stated before, the Cortex-A series is a family of processors. Being that utilizes multiple instruction sets, or extensions of them. These includes the ARMv7-A, Thumb, ThumbEE, NEON, and VFP instruction sets. ARM's A15 reference manual indicates on various occasions when to refer to a repective to describe it's own features.
+
+		\subsection{Thumb \& ThumbEE}
+
+
+
+		\subsection{Advanced SIMD}
+
+		Advanced SIMD extension is a media and signal processing architecture that adds instructions targeted primarily at audio, video, 3-D 
+		graphics, image, and speech processing.
+		
+		\subsection{VFP}
+		VFP extension performs single-precision and double-precision floating-point operations.
+	
+	% Describe ISA extentions:
+		%   1) Virtual Extentions architecture
+		%   2) Large Physical Address Extension Architecture
+		%   3) Generic timer
+
+%\chapter{Instruction Format}
+{\let\clearpage\relax\chapter{Instruction Format}}
+
+	% check out programmer's model in chapter 3 (file : ./ArmCortex15_manual.pdf)
+	Since the ARMv7-A architecture is based off of the RISC design, all instructions are the same size. However, since the Cortex A15 extends
+	this base ARMv7-A architecture, 64-bit instructions also exist. This is only in virtual states of processing though.
+	% ARMv7 reference manual pg. A2-53/A3-111
+	% Explanation came from book
+	In the many layers of abstraction that exist in a computer, the endianess of an architecture must be carefully observed. The endianess of
+	of an architecture refer to the "byte order" of the computer. This can also be explained as the method of which a computer stores
+	multiple-byte data elements. For example, the 4-bit string made up of $2$ 2-bit data elements $0001$, can be read by a computer in little-endian as $4_{10}$. Alternatively, read as big-endian it would be $1_{10}$ The ARMv7-A architecture exclusivley exhibits little-endian practices. The A15 however, has an interesting but dangerous characteristic which gives it the ability to configure itself between little-endian or big-endian through the use of ARM and Thumb instruction $SETEND$ $BE$ which translates to 0, or $SETEN$ $LE$ which translates to 1.
+
+
+
+{\let\clearpage\relax\chapter{Registers}}
+%\chapter{Registers}
+
+	% Explain versatility
+	As explained before, there are multiple 
+
+	% Give numbers 15 & 37
+	The A15 processor has a total of 15 registers, which are "grouped" in different categories. As explained in 
+
+
+	% Describe why I'm using the ARMv7 manual to describe these registers
+
+	% Describe: 
+	%   1) Virtual Extentions architecture
+	%   2) Large Physical Address Extension Architecture
+	%   3) Generic timer
+
+{\let\clearpage\relax\chapter{Data Types}}
+%\chapter{Data Types}
+
+
+	The following data types use these 32 bits to represent:
+
+	\begin{itemize}
+		\item{32-bit pointers}
+		\item{Unsigned or signed 32-bit integers}
+		\item{Unsigned 16-bit or 8-bit integers, held in zero-extended form}
+		\item{Signed 16-bit or 8-bit integers, held in sign-extended form}
+		\item{Two 16-bit integers packed into a register}
+		\item{Four 8-bit integers packed into a register}
+		\item{Unsigned or signed 64-bit integers held in two registers}
+	\end{itemize}
+
+	Unsigned according to this processor's specification manual is described as a data value representing a non-negative integer in the
+	range $0$ to $2^{N-1}$.
+
+{\let\clearpage\relax\chapter{Addressing Modes}}
+%\chapter{Addressing Modes}
+
+	As described before, in \iffalse Gotta put reference here \fi only instructions that access memory are the load and store instructions.
+
+{\let\clearpage\relax\chapter{I/O}}
+%\chapter{I/O}
+
+{\let\clearpage\relax\chapter{Unusual Features}}
+%\chapter{Unusual Features}
+	
+	\section{Limited Registers}
+
+	One of the characteristics that make the ARM architecture unique is that only supports 16 general purpose registers. Compared to other architectures, this amount of registers can be called limited. All of the other major architectures, including the MIPS, SPARC, and the PowerPC architectures all support 32 registers. \iffalse Find a way to say how Itanium has 128 registers. the Itanium RISC architecture supports 128 registers! \fi
+
+	To compensate for this limitation of registers though, virtualized environment instructions have been designed and implemented for this 
+	processor.
+
+	\section{big.LITTLE with the A15 \& A9}
+	%http://community.arm.com/groups/processors/blog/2014/09/28/biglittle-mp-improves-your-daily-mobile-experience-part-1
+
+\chapter{Uses/Applications}
+
+	\section{Mobile Computing}
+
+	% Interview with Steve Furber. ACM digital library pdf.
+	Ph.D. Steve Furber, one of the principal designers of the BBC Microcomputer System and ARM microprocessors when the "A" in ARM stood for 
+	"Acorn", had this to say when interviewed by Jason Fitzpatrick. "The ARM architecture is the most widely used 32-bit RISC architecture and the ARM processor's power efficiency—performing the same amount of work as other 32-bit processors while consuming one-tenth the amount of electricity—has resulted in the widespread dominant use of the ARM processor in mobile devices and embedded systems." This whole research paper is based off of fascination related to ubiquitous computing. So when I decided to conduct research on what was behind the popular Samsung's Galaxy S4 successful mobile phone design, it was not a coincidence to find out it was ARM behind the processor design.
+
+
+\chapter{Contributions to the computer architecture landscape}
+
+	\section{Low Energy Computing}
+
+\end{document} 
+
+
+% \begin{figure}[h]
+	
+% 	\centering
+% 		\includegraphics[width=0.25\textwidth]{figure1}
+% 	\caption{Figure 1}
+
+% \end{figure}
+
+% \section{Adjacency matrix for $A$} 
+
+% \[ A = \left( \begin{array}{cccc}
+% 0 & 1 & 1 & 0 \\
+% 1 & 0 & 1 & 1 \\
+% 1 & 1 & 0 & 1 \\
+% 0 & 1 & 1 & 0 \end{array} \right)\] 
+
+% \section{$A^2$ and $A^3$}
+
+% \[ A^2 = \left( \begin{array}{cccc}
+% 2 & 1 & 1 & 2 \\
+% 1 & 3 & 2 & 1 \\
+% 1 & 2 & 3 & 1 \\
+% 2 & 1 & 1 & 2 \end{array} \right)\] 
+
+% \[ A^3 = \left( \begin{array}{cccc}
+% 2 & 5 & 5 & 2 \\
+% 5 & 4 & 5 & 5 \\
+% 5 & 5 & 4 & 5 \\
+% 2 & 5 & 5 & 2 \end{array} \right)\] 
+
+% \pagebreak
+
+% \subsection{What values in $A^n$ tell about the graph in Figure 1 & proving your claim for $A^2$} 
+
+% The $n$ in the expression $A^n$ represents the amount of edges that must be used in order to travel between one  node, to another.
+% The adjacency matrix for $A^1$ represents $0$ paths between $V_1$ and itself. In the adjacency matrix $A^2$, there are
+% $2$ possible paths from $V_1$ to itself utilizing 2 edges.
+
+% \section{Compute the eigenvalues and eigenvectors for $A$}
+
+%   \begin{center}
+%   \textbf{Eigenvalues}
+%   \end{center}
+
+%   \begin{center}
+%   \begin{tabular}{ c c c p{5cm} }
+%     $\lambda_1$ & $\rightarrow$ & $\frac{1}{2}(1+\sqrt{17})$ \\        
+%     $\lambda_2$ & $\rightarrow$ & $\frac{1}{2}(1-\sqrt{17})$ \\
+%     $\lambda_3$ & $\rightarrow$ & -1 \\
+%     $\lambda_4$ & $\rightarrow$ & 0 \\
+%   \end{tabular}
+%   \end{center}
+
+%   \begin{center}
+%   \textbf{Eigenvectors}
+%   \end{center}
+
+%   \begin{center}
+%   $\vec{x}_1 = \begin{pmatrix}1\\\frac{1}{4}(1 + \sqrt{17})\\\frac{1}{4}(1 + \sqrt{17})\\1\end{pmatrix}$
+%   $\vec{x}_2 = \begin{pmatrix}1\\\frac{1}{4}(1 - \sqrt{17})\\\frac{1}{4}(1 - \sqrt{17})\\1\end{pmatrix}$
+%   $\vec{x}_3 = \begin{pmatrix}0\\-1\\1\\0\end{pmatrix}$
+%   $\vec{x}_4 = \begin{pmatrix}-1\\0\\0\\1\end{pmatrix}$
+%   \end{center}
+
+% \subsection{Importance of eigenvalues and eigenvectors to graph}
+
+% We observed that there is one zero, one positive, and two negative eigenvalues for the adjacency matrix $A$.
+% The importance of these values related to the graph can be used to determine the structure of the graph.
+% For this graph, 
+
+% \pagebreak
+
+% \begin{figure}[h]
+% 	\centering
+% 		\includegraphics[width=0.25\textwidth]{figure2}
+% 	\caption{Figure 2}
+% \end{figure}
+
+% \section{Draw the adjacency matrix $A$ for Figure 2}
+
+% \[ \left( \begin{array}{ccccc}
+% 0 & 1 & 0 & 1 & 0 \\
+% 1 & 0 & 1 & 0 & 1 \\
+% 0 & 1 & 0 & 1 & 0 \\
+% 1 & 0 & 1 & 0 & 1 \\
+% 0 & 1 & 0 & 1 & 0 \end{array} \right)\] 
+
+% \section{Figure 2 Cycles} 
+% \subsection{Amount of 2-cycles for the left-hand and right-hand vertices}
+
+% \centerline{Left-hand: 6}
+% \centerline{Right-Hand: 6}
+
+% \subsection{Amount of 4-cycles for the left-hand and right-hand vertices} 
+
+% \centerline{Left-hand: 6}
+% \centerline{Right-Hand: 4}
+
+% \subsection{Amount of 6-cycles for the left-hand and right-hand vertices} 
+
+% \centerline{Left-hand: 0}
+% \centerline{Right-Hand: 0}
