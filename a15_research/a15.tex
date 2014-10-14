@@ -79,13 +79,8 @@ Dr. Patricia \textsc{Roden}
 	which span to the ARM11 architecture. The processors are also categorized into different "series". This includes the
 	M series, R series, and A series. The M series processors are optimized for microcontrollers. The R series has been designed
 	for embedded systems and real time applications. Whereas the A series, which includes the A15, has been designed to handle
-	full operating systems in third party applications.
-
-	
-
-	% Describe A15 in specific
-	
-	As for the ARM Cortex-A15 processor, it is the fourth generation in a family. It follows the A5, A7, and A9 processors.
+	full operating systems in third party applications. So just by looking that the name of the A15, it can be understood
+	it was designed and optimized for the latter domain of applications.
 
 
 {\let\clearpage\relax\chapter{Memory Specifications}}
@@ -115,7 +110,10 @@ Dr. Patricia \textsc{Roden}
 {\let\clearpage\relax\chapter{Instruction Sets}}
 %\chapter{Instruction Sets (Yes. Multiple.)}
 
-	I'll begin this section with explaining that an interface is an intermediary between two entities. Humans have utilized this concept in order to build rockets which have reached mars, create heart rate monitors, and even predict weather. A processor which is only designed to fetch, decode, and execute various instructions must first be able to understand what its supposed to do. Since humans and computers are worlds apart when it comes to communicating with each other, the Instruction Set Architecture interface was created. This interface saves humans from learning the exact strings of 0's and 1's the processor understands in order to carry out an instruction.
+	I'll begin this section with explaining that an interface is an intermediary between two entities. Humans have utilized this concept in order to build rockets which have reached mars, 
+	create heart rate monitors, and even predict weather. A processor which is only designed to fetch, decode, and execute various instructions must first be able to understand what its 
+	supposed to do. Since humans and computers are worlds apart when it comes to communicating with each other, the Instruction Set Architecture interface was created. This interface saves 
+	humans from learning the exact strings of 0's and 1's the processor understands in order to carry out an instruction.
 	%In order to save humans from learning the exact format of bits which executes an instruction, the Instruction Set Architecture interface was created.
 	This is the agreed-upon interface designed for a machine essentially allows software to able to communicate with the hardware that executes it.
 	% from book
@@ -145,9 +143,14 @@ Dr. Patricia \textsc{Roden}
 
 	\section{Extentions to ARMv7-A Instructions}
 
-	The A15 is designed with ability to decode different instruction sets. Depending on what "mode" of operation of execution the instruction . This mode is controlled by a simple switch of the designated T bit  J bit in the Current Program Status Register (CSPR). With the A15 having the ability to support multiple ISA's, this allows for is the Large Physical Address Extension (LPAE) architecture to enable virtual environments.
+	Being that the A15 is the fourth generation of processors designed by ARM, it has evolved extensively. Good designs are kept and streamlined, while
+	the bad died out. To keep up with the evolution of computation the A series began to be designed with ability to decode different instruction sets. 
+	Depending on what "mode" of operation of execution the instruction . 
+	This mode is controlled by a simple switch of the designated T bit  J bit in the Current Program Status Register (CSPR). With the A15 having the ability to support multiple ISA's, this allows for is the Large Physical Address Extension (LPAE) architecture to enable virtual environments.
 
-	Why have support for virtual environments though? As stated before, the Cortex-A series is a family of processors. Being that utilizes multiple instruction sets, or extensions of them. These includes the ARMv7-A, Thumb, ThumbEE, NEON, and VFP instruction sets. ARM's A15 reference manual indicates on various occasions when to refer to a repective to describe it's own features.
+	Why have support for virtual environments though? As stated before, the Cortex-A series is a family of processors which is evolving with the times.
+	More and more computation must be supported, so a processor needs to be versitale enough to keep up with the designs.
+	Being that utilizes it multiple instruction sets, or extensions of them. These includes the ARMv7-A, Thumb, ThumbEE, NEON, and VFP instruction sets. ARM's A15 reference manual indicates on various occasions when to refer to a repective to describe it's own features.
 
 		\subsection{Thumb \& ThumbEE}
 
