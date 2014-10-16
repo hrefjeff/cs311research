@@ -61,17 +61,15 @@ Dr. Patricia \textsc{Roden}
 
 \tableofcontents
 
-
-
 \chapter{History/Background of ARM Cortex-A15}
 
 	%From Guide to RISC Processors ch 8
 	% Describe very beginning
 	In 1985, the Acorn Computer Group birthed the ARM architecture in the United Kingdom. This was only the beginning to
-	the quick pace ARM began developing and evolving its architecture. Two short years afterwards, Acorn 
-	released its first RISC processor that was optimized for low-cost personal computers. Later, in 1990, ARM 
-	which originally stood for Acorn RISC Machine, developed its Advanced RISC Machine, which defined its 32-bit RISC-like
-	architecture.
+	the quick pace ARM began developing and evolving their architectural designs. Two short years afterwards, Acorn 
+	released its first RISC processor that was optimized for low-cost personal computers. Following this, in 1990, ARM 
+	which originally stood for Acorn RISC Machine developed its Advanced RISC Machine. This design defined its 32-bit RISC-like
+	architecture generally used today.
 
 	% Describe middle to end in one paragraph
 	According to Linda Null and Julia Lobor there are multiple families of ARM architectures and processors. The reason for different
@@ -79,12 +77,14 @@ Dr. Patricia \textsc{Roden}
 	which span to the ARM11 architecture. The processors are also categorized into different "series". This includes the
 	M series, R series, and A series. The M series processors are optimized for microcontrollers. The R series has been designed
 	for embedded systems and real time applications. Whereas the A series, which includes the A15, has been designed to handle
-	full operating systems in third party applications. So just by looking that the name of the A15, it can be understood
-	it was designed and optimized for the latter domain of applications.
-
+	full operating systems in third party applications. So just by looking that the name of the A15, it is implictly understood
+	that it was designed and optimized for the latter domain of applications.
 
 {\let\clearpage\relax\chapter{Memory Specifications}}
 %\chapter{Memory Specifications}
+
+	Memory in the ARM architecture models memory as a single array of $2^{32}$ 8-bit bytes.
+	In total, that is 4,294,967,296 bytes of memory (or 34,359,738,368 bits. Whoo. That's quite alot to take care of).
 
 	In reviewing the ARM Architecture Reference Manual ARMv7-A and ARMv7-R edition, the list of following data types are supported in memory:
 
@@ -99,23 +99,38 @@ Dr. Patricia \textsc{Roden}
 		\bfseries Doubleword \' 64 bits\\
 	\end{center}
 
+	Unsigned numbers represent byte addresses that range from 0 to $2^{32}-1$.
+	Word-aligned addresses are divisible by 4.
+	While halfword-aligned addresses which are divisble by 2.
+	The blessing and curse associated with the A15 is that it supports unaligned memory storage as well.
+	This gives a programmer just enough rope to hang him or herself if not careful enough to read the SCTLR documentation associated.
+
+
 	Load and store operations are able to transfer bytes, halfwords, or words to and from memory. The loading of bytes or halfwords zero-extend
 	(pad with zeroes) or sign-extend (increasing number of bits of a binary number while preserving the number's sign and value) the data as it is loaded, or specified by the load instruction.
 
 	%3.8.1 
-	Instructions are word-algined.
+	The A15's ARM instructions are word-aligned. This means that the size of the instructions are and must be divisible by 4.
+	While its Thumb instructions are halfword-aligned.
+	As for Java bytecode instructions, they are simply be byte aligned.
+	Meaning it has no real limitations of where memory can be accessed.
+
+	Unaligned memory is supported with special instructions with ARMv7's instruction set.
+
 
 	%****Define word algined*****
 
 {\let\clearpage\relax\chapter{Instruction Sets}}
 %\chapter{Instruction Sets (Yes. Multiple.)}
 
-	I'll begin this section with explaining that an interface is an intermediary between two entities. Humans have utilized this concept in order to build rockets which have reached mars, 
-	create heart rate monitors, and even predict weather. A processor which is only designed to fetch, decode, and execute various instructions must first be able to understand what its 
-	supposed to do. Since humans and computers are worlds apart when it comes to communicating with each other, the Instruction Set Architecture interface was created. This interface saves 
-	humans from learning the exact strings of 0's and 1's the processor understands in order to carry out an instruction.
+	I'll begin this section with explaining that an interface is an intermediary between two entities.
+	Humans have utilized this concept in order to build rockets which have reached mars, create heart rate monitors, and even predict weather. 
+	A computer's processor is only designed to fetch, decode and execute various instructions.
+	Before all of that, it must first be able to understand what its supposed to do.
+	Since humans and computers are worlds apart when it comes to communicating with each other, the Instruction Set Architecture (ISA) interface was created.
+	This interface saves humans from learning the exact strings of 0's and 1's the processor understands in order to carry out an instruction.
 	%In order to save humans from learning the exact format of bits which executes an instruction, the Instruction Set Architecture interface was created.
-	This is the agreed-upon interface designed for a machine essentially allows software to able to communicate with the hardware that executes it.
+	Essentially, this is the agreed-upon interface designed for a machine essentially allows software to able to communicate with the hardware that executes it.
 	% from book
 
 	\section{RISC Vs. CISC}
@@ -134,35 +149,44 @@ Dr. Patricia \textsc{Roden}
 
 	\section{Main ISA: ARMv7-A}
 
-	At the end of the day, it is all about communication. Moore's Law, stating that the density of transistors on an integrated circuit is doubling 
-	ever 18 months, is one of the main reasons why communication between humans and computers has changed, and continues to change so rapidly. This 
-	concept applied to the range of years between 1960 to 2014 describes a fair amount exponential increase in transitors, or methods of 
-	communication. As Linda Null and Julia Lobor point out though, RISC in today's society something of a misnomer. It can be said that 
-	almost all recently created instruction sets are a mixture of RISC's and CISC's. The main instruction set supported by the Cortex-A15 processor 
-	is the 32-bit ARMv7-A. 
+	At the end of the day, it is all about communication. 
+	Moore's Law, states that the density of transistors on an integrated circuit is doubling ever 18 months.
+	This law explains one of the main reasons why communication between humans and computers has changed, and continues to change so rapidly.
+	The concept applied to the range of years between 1960 to 2014 describes a fair amount exponential increase in transitors, or rather, methods of communication.
+	As Linda Null and Julia Lobor point out though, RISC in today's society something of a misnomer.
+	They say that almost all recently created instruction sets are a mixture of RISC's and CISC's.
+	It can be seen in practice with the Cortex-A15 which supports its main ARMv7-A architecture, supplemented with the Thumb, Advanced SIMD, and VFP architectures.
 
 	\section{Extentions to ARMv7-A Instructions}
 
-	Being that the A15 is the fourth generation of processors designed by ARM, it has evolved extensively. Good designs are kept and streamlined, while
-	the bad died out. To keep up with the evolution of computation the A series began to be designed with ability to decode different instruction sets. 
-	Depending on what "mode" of operation of execution the instruction . 
-	This mode is controlled by a simple switch of the designated T bit  J bit in the Current Program Status Register (CSPR). With the A15 having the ability to support multiple ISA's, this allows for is the Large Physical Address Extension (LPAE) architecture to enable virtual environments.
+	Being that the A15 is the fourth generation of processors designed by ARM, it has evolved extensively.
+	Good designs are kept and streamlined, while the bad died out.
+	To keep up with the evolution of computation the A series began to be designed with ability to decode different instruction sets. 
+	Depending on what state, or "CPU mode", of operation of execution the processor is in, will determine how the instruction will be translated.
+	The state indication is controlled by a simple switch of the designated T (Thumb) bit and J (Java) bit in the processor's Current Program Status Register (CSPR).
+	This will be explained later in the "Registers" section.
+	With the A15 having the ability to support multiple ISA's, this allows for is the Large Physical Address Extension (LPAE) architecture to enable virtual environments.
 
-	Why have support for virtual environments though? As stated before, the Cortex-A series is a family of processors which is evolving with the times.
+	Why have support for virtual environments though? As stated before, the Cortex-A series is a family of processors which is only evolving with the times.
 	More and more computation must be supported, so a processor needs to be versitale enough to keep up with the designs.
-	Being that utilizes it multiple instruction sets, or extensions of them. These includes the ARMv7-A, Thumb, ThumbEE, NEON, and VFP instruction sets. ARM's A15 reference manual indicates on various occasions when to refer to a repective to describe it's own features.
+	Being that utilizes it multiple instruction sets, or extensions of them. These includes the ARMv7-A, Thumb, ThumbEE, NEON, and VFP instruction sets. 
+	ARM's A15 reference manual indicates on various occasions when to refer to a repective to describe it's own features.
 
 		\subsection{Thumb \& ThumbEE}
+			This instruction set basically truncates the most commonly used 32-bit ARM instructions into 16-bit instructions.
+			Therefore, creating simpler and more quickly executed instructions.
 
+		\subsection{Jazelle}
 
-
-		\subsection{Advanced SIMD}
-
-		Advanced SIMD extension is a media and signal processing architecture that adds instructions targeted primarily at audio, video, 3-D 
-		graphics, image, and speech processing.
+		\subsection{Advanced SIMD (Single Instruction Multiple Data)}
+			Advanced SIMD extension is a media and signal processing architecture that adds instructions targeted primarily at audio, video, 3-D, graphics, image, and speech processing.
 		
-		\subsection{VFP}
-		VFP extension performs single-precision and double-precision floating-point operations.
+		\subsection{VFP (Vector Floating Point Coprocessor Extension)}
+			This is instruction set that extends the ARMv7-A instructions.
+			ALL VFP extension performs single-precision and double-precision floating-point operations.
+
+		\subsection{NEON}
+
 	
 	% Describe ISA extentions:
 		%   1) Virtual Extentions architecture
@@ -186,14 +210,38 @@ Dr. Patricia \textsc{Roden}
 {\let\clearpage\relax\chapter{Registers}}
 %\chapter{Registers}
 
-	% Explain versatility
-	As explained before, there are multiple 
-
 	% Give numbers 15 & 37
-	The A15 processor has a total of 15 registers, which are "grouped" in different categories. As explained in 
-
+	Essentially, a register is a place on the processor where data, instructions and state information is held.
+	At any given moment in time, the processor is said to have access to 16 of these high speed memory locations which are 32-bits wide.
+	Drawing from the concepts introduced in chapter 3, the need for virtualization is essential to todays computing standards.
+	The different modes of execution supported by the A15 allows for this small set of 15 registers to actually be viewed as having a total of 37.
+	Hurray for abstraction.
 
 	% Describe why I'm using the ARMv7 manual to describe these registers
+	The A15 manual quite often times refers to the ARMv7 manual in order to get details regarding it.
+	This is one of those times.
+	The ARMv7 manual explains how these 15 registers are utilized:
+
+	\begin{itemize}	
+		\item{\bfseries Banked}
+		\item{0: General Purpose}
+		\item{1: General Purpose}
+		\item{2: General Purpose}
+		\item{3: General Purpose}
+		\item{4: General Purpose}
+		\item{5: General Purpose}
+		\item{6: General Purpose}
+		\item{7: General Purpose}
+		\item{\bfseries Unbanked}
+		\item{8: }
+		\item{9: }
+		\item{10: }
+		\item{11: }
+		\item{12: }
+		\item{13: Stack Pointer}
+		\item{14: Link Register}
+		\item{\bfseries Register 15: Program Counter}
+	\end{itemize}
 
 	% Describe: 
 	%   1) Virtual Extentions architecture
@@ -222,7 +270,9 @@ Dr. Patricia \textsc{Roden}
 {\let\clearpage\relax\chapter{Addressing Modes}}
 %\chapter{Addressing Modes}
 
-	As described before, in \iffalse Gotta put reference here \fi only instructions that access memory are the load and store instructions.
+	The method in which the address in memory is generated used by the load or store instruction is defined as an addressing mode.
+	For the sake of simplicity, I'll be only outlining main topics related to how addressing modes
+
 
 {\let\clearpage\relax\chapter{I/O}}
 %\chapter{I/O}
