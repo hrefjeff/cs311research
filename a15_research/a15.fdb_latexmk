@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1413415495 "a15.tex" "a15.pdf" "a15" 1413415496
+["pdflatex"] 1413871831 "a15.tex" "a15.pdf" "a15" 1413871831
   "/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii" 1337017135 71627 94eb9990bed73c364d7f53f960cc8c5b ""
   "/usr/share/texlive/texmf-dist/tex/generic/ifxetex/ifxetex.sty" 1284331290 1458 43ab4710dc82f3edeabecd0d099626b2 ""
   "/usr/share/texlive/texmf-dist/tex/generic/oberdiek/etexcmds.sty" 1335995445 7612 c47308d923ec19888707b0f1792b326a ""
@@ -105,9 +105,11 @@
   "/usr/share/texmf/tex/latex/pgf/utilities/pgfkeys.sty" 1304191498 274 4cad6e665cc93ac2ac979039a94fa1e1 ""
   "/usr/share/texmf/tex/latex/pgf/utilities/pgfrcs.sty" 1304191498 325 2bcd023400636339210573e2b3ee298b ""
   "/usr/share/texmf/tex/latex/xcolor/xcolor.sty" 1339578534 55224 a43bab84e0ac5e6efcaf9a98bde73a94 ""
-  "a15.aux" 1413415496 2817 a7d83dfffb1ab0864cde8f4b2f01682d ""
-  "a15.tex" 1413415495 19356 cdca894d5030fbfdca5e2d995d8b00be ""
-  "a15.toc" 1413415496 1559 d4cc5c95dcbb603eb330bb2beb28594f ""
+  "a15.aux" 1413871831 3432 98158da2654340708b2d6b3f4c983d8f ""
+  "a15.tex" 1413871829 24125 b88d36073b5f2880dfa23e518c32804d ""
+  "a15.toc" 1413871831 1953 28ecc7ae2f8b6c585381a361f37b7ed4 ""
+  "croppedIE.jpg" 1413863819 21331 2066730e5e0b49578eff90c6fe955e9f ""
+  "registers.jpg" 1413844390 51118 1c93a427f5549b1f8b3f459fcca4efaf ""
   (generated)
   "a15.log"
   "a15.pdf"

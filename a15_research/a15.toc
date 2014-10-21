@@ -1,23 +1,29 @@
-\contentsline {chapter}{\numberline {1}History/Background of ARM Cortex-A15}{4}
-\contentsline {chapter}{\numberline {2}Memory Specifications}{4}
-\contentsline {chapter}{\numberline {3}Instruction Sets}{5}
-\contentsline {section}{\numberline {3.1}RISC Vs. CISC}{6}
-\contentsline {section}{\numberline {3.2}Main ISA: ARMv7-A}{7}
-\contentsline {section}{\numberline {3.3}Extentions to ARMv7-A Instructions}{7}
-\contentsline {subsection}{\numberline {3.3.1}Thumb \& ThumbEE}{8}
-\contentsline {subsection}{\numberline {3.3.2}Jazelle}{8}
-\contentsline {subsection}{\numberline {3.3.3}Advanced SIMD (Single Instruction Multiple Data)}{8}
-\contentsline {subsection}{\numberline {3.3.4}VFP (Vector Floating Point Coprocessor Extension)}{8}
-\contentsline {subsection}{\numberline {3.3.5}NEON}{9}
+\contentsline {chapter}{\numberline {1}History}{4}
+\contentsline {chapter}{\numberline {2}Instruction Sets}{4}
+\contentsline {section}{\numberline {2.1}RISC Vs. CISC}{5}
+\contentsline {section}{\numberline {2.2}Main ISA: ARMv7-A}{6}
+\contentsline {section}{\numberline {2.3}Extentions to ARMv7-A Instructions}{6}
+\contentsline {subsection}{\numberline {2.3.1}Thumb \& ThumbEE}{7}
+\contentsline {subsection}{\numberline {2.3.2}Jazelle}{7}
+\contentsline {subsection}{\numberline {2.3.3}Advanced SIMD (Single Instruction Multiple Data)}{7}
+\contentsline {subsection}{\numberline {2.3.4}VFP (Vector Floating Point Coprocessor Extension) \& NEON}{8}
+\contentsline {chapter}{\numberline {3}Memory Specifications}{8}
 \contentsline {chapter}{\numberline {4}Instruction Format}{9}
-\contentsline {chapter}{\numberline {5}Registers}{9}
-\contentsline {chapter}{\numberline {6}Data Types}{11}
-\contentsline {chapter}{\numberline {7}Addressing Modes}{11}
-\contentsline {chapter}{\numberline {8}I/O}{12}
-\contentsline {chapter}{\numberline {9}Unusual Features}{12}
-\contentsline {section}{\numberline {9.1}Limited Registers}{12}
-\contentsline {section}{\numberline {9.2}big.LITTLE with the A15 \& A9}{12}
-\contentsline {chapter}{\numberline {10}Uses/Applications}{13}
-\contentsline {section}{\numberline {10.1}Mobile Computing}{13}
-\contentsline {chapter}{\numberline {11}Contributions to the computer architecture landscape}{14}
-\contentsline {section}{\numberline {11.1}Low Energy Computing}{14}
+\contentsline {section}{\numberline {4.1}Endianess}{9}
+\contentsline {section}{\numberline {4.2}Data Transfer Instructions}{10}
+\contentsline {subsection}{\numberline {4.2.1}Moving}{10}
+\contentsline {section}{\numberline {4.3}Arithmetic}{10}
+\contentsline {section}{\numberline {4.4}Comparison}{10}
+\contentsline {section}{\numberline {4.5}Branch}{11}
+\contentsline {section}{\numberline {4.6}Stack Operations}{11}
+\contentsline {chapter}{\numberline {5}Registers}{11}
+\contentsline {chapter}{\numberline {6}Data Types}{13}
+\contentsline {section}{\numberline {6.1}Register Data Types}{13}
+\contentsline {section}{\numberline {6.2}Pseudo-Instruction Data Types}{14}
+\contentsline {chapter}{\numberline {7}Addressing Modes}{14}
+\contentsline {section}{\numberline {7.1}Offset addressing}{15}
+\contentsline {section}{\numberline {7.2}Pre-indexed addressing}{15}
+\contentsline {section}{\numberline {7.3}Post-indexed addressing}{15}
+\contentsline {chapter}{\numberline {8}Unusual Features}{15}
+\contentsline {chapter}{\numberline {9}Major Contribution to Architecture Design: Low Energy Computing}{16}
+\contentsline {chapter}{\numberline {10}Uses/Applications: Mobile Computing}{16}
