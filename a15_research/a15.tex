@@ -1,10 +1,14 @@
 \documentclass[12pt]{scrreprt} 
-\usepackage{graphicx}
 \usepackage{tikz}
-\usepackage{mathtools}
 \usepackage{caption}
 \usepackage[margin=1in]{geometry}
 \usepackage{setspace}
+\usepackage[style=mla, noremoteinfo=true]{biblatex}
+\usepackage{hyperref}
+\usepackage[american]{babel}
+\usepackage{csquotes}
+\addbibresource{a15.bib}
+%\usepackage{mla13}
 \doublespacing
 %\linespread {1.5}
 \captionsetup[figure]{labelformat=empty}
@@ -25,7 +29,7 @@
 %----------------------------------------------------------------------------------------
 
 \textsc{\LARGE University of North Alabama}\\[1.5cm] % Name of your university/college
-\textsc{\Large Computer Architecture and Orginization}\\[0.5cm] % Major heading such as course name
+\textsc{\Large Computer Architecture and Organization}\\[0.5cm] % Major heading such as course name
 
 %----------------------------------------------------------------------------------------
 %	TITLE SECTION
@@ -63,7 +67,6 @@ Dr. Patricia \textsc{Roden}
 
 \chapter{History}
 
-	%From Guide to RISC Processors ch 8
 	% Describe very beginning
 	In 1985, the Acorn Computer Group birthed the ARM architecture in the United Kingdom. This was only the beginning to
 	the quick pace ARM began developing and evolving their architectural designs. Two short years afterwards, Acorn 
@@ -72,7 +75,7 @@ Dr. Patricia \textsc{Roden}
 	architecture generally used today.
 
 	% Describe middle to end in one paragraph
-	According to Linda Null and Julia Lobor there are multiple families of ARM architectures and processors. 
+	According to Linda Null and Julia Lobur there are multiple families of ARM architectures and processors \autocite[327]{classtext}.
 	The problem domain which the processor is designed for group them into these different families. 
 	These architectures include include the ARM1, ARM2, which span to the ARM11 architecture.
 	The processors are also categorized into different "series".
@@ -83,7 +86,6 @@ Dr. Patricia \textsc{Roden}
 	It can be implicitly understood by the name that the A15 was designed and optimized for the latter domain.
 
 {\let\clearpage\relax\chapter{Instruction Sets}}
-%\chapter{Instruction Sets (Yes. Multiple.)}
 
 	I'll begin this section with explaining that an interface is an intermediary between two entities.
 	Humans have utilized this concept in order to build rockets which have reached mars, create heart rate monitors, and even predict weather. 
@@ -91,20 +93,20 @@ Dr. Patricia \textsc{Roden}
 	Before all of that, it must first be able to understand what its supposed to do.
 	Since humans and computers are worlds apart when it comes to communicating with each other, the Instruction Set Architecture (ISA) interface was created.
 	This interface saves humans from learning the exact strings of 0's and 1's the processor understands in order to carry out an instruction.
-	%In order to save humans from learning the exact format of bits which executes an instruction, the Instruction Set Architecture interface was created.
-	Essentially, this is the agreed-upon interface designed for a machine allows software to able to communicate with the hardware that executes it.
-	% from book
+	Essentially, this is the agreed-upon interface designed for a machine allows software to able to communicate with the hardware that executes it\autocite[233]{classtext}.
 
 	\section{RISC Vs. CISC}
 
 	% Dandamudi example pg 5
-	Two types of processor design philosophies include Reduced Instruction Set Computers (RISC) and Complex Instruction Set Computers (CISC).
+	There are two types of processor design philosophies \autocite[5]{riscGuide}.
+	One of them is the RISC, or the Reduced Instruction Set Computer design.
+	The other is CISC, or the Complex Instruction Set Computers design.
 	CISC systems can be described through an example.
 	Subtracting two integers is considered "simple".
 	Then there is a type of instruction which can be categorized as complex, which can be found in a bubble sort swap routine.
 
 	
-		Bubble sort essentially sorts a list by taking an array $ A $, copying one element $ \alpha $ located at index $ A_{x} $ and "bubbles" it up it its correct position.
+	Bubble sort essentially sorts a list by taking an array $ A $, copying one element $ \alpha $ located at index $ A_{x} $ and "bubbles" it up it its correct position.
 	When another element $\beta$ located at $ A_{y} $ found to be the $ \alpha $'s correct position, the complex swap instruction begins.
 	In the interest of not losing $\beta$, we must first copy it into a temporary location, which then allows $\alpha$ to be inserted into it.
 	After that, $\beta$ can safely be stored into $\alpha$'s original position.
@@ -119,11 +121,11 @@ Dr. Patricia \textsc{Roden}
 
 	\section{Main ISA: ARMv7-A}
 
-	At the end of the day, it is all about communication. 
+	At the end of the day, it is all about communication.
 	Moore's Law, states that the density of transistors on an integrated circuit is doubling ever 18 months.
 	This law explains one of the main reasons why communication between humans and computers has changed, and continues to change so rapidly.
-	The concept applied to the range of years between 1960 to 2014 describes a fair amount exponential increase in transitors, or rather, methods of communication.
-	As Linda Null and Julia Lobor point out though, RISC in today's society something of a misnomer.
+	The concept applied to the range of years between 1960 to 2014 describes a fair amount exponential increase in transistors, or rather, methods of communication.
+	As Linda Null and Julia Lobur point out though, RISC in today's society something of a misnomer \autocite[327]{classtext}.
 	They say that almost all recently created instruction sets are a mixture of RISC's and CISC's.
 	It can be seen in practice with the Cortex-A15 which supports its main ARMv7-A architecture, supplemented with the Thumb, Advanced SIMD, and VFP architectures.
 
@@ -158,7 +160,7 @@ Dr. Patricia \textsc{Roden}
 			The advanced SIMD extension is a media and signal processing architecture.
 			This set of instructions instructions adds the functionality targeted primarily at audio, video, 3-D, graphics, image, and speech processing.
 		
-		\subsection{VFP (Vector Floating Point Coprocessor Extension) \& NEON}
+		\subsection{VFP (Vector Floating Point Co processor Extension) \& NEON}
 			In essence, all these instruction sets are designed to do is make computation highly efficient.
 			As stated in the A15 manual, the NEON technology provides support for integer and floating-point vector operations.
 			While the VFP extension performs single-precision and double-precision floating-point operations.
@@ -178,35 +180,34 @@ Dr. Patricia \textsc{Roden}
 			\bfseries Byte & 8 bits \\ \hline
 			\bfseries Halfword & 16 bits \\ \hline
 			\bfseries Word & 32 bits \\ \hline
-			\bfseries Doubleword & 64 bits \\ \hline
+			\bfseries Double word & 64 bits \\ \hline
 		\end{tabular}
 	\end{center}
 
 	Unsigned numbers represent byte addresses that range from 0 to $2^{32}-1$.
 	Word-aligned addresses are divisible by 4.
-	While halfword-aligned addresses which are divisble by 2.
+	While halfword-aligned addresses which are divisible by 2.
 	The blessing and curse associated with the A15 is that it supports unaligned memory storage as well.
 	This gives a programmer just enough rope to hang him or herself if not careful enough to read the SCTLR (System Control Register) documentation associated with this method of memory access.
 
 	Load and store operations are able to transfer bytes, halfwords, or words to and from memory.
-	The loading of bytes or halfwords zero-extend (pad with zeroes) or sign-extend (increasing number of bits of a binary number while preserving the number's sign and value) the data as it is loaded, or specified by the load instruction.
+	The loading of bytes or halfwords zero-extend (pad with zeros) or sign-extend (increasing number of bits of a binary number while preserving the number's sign and value) the data as it is loaded, or specified by the load instruction.
 
 	%3.8.1 
-	The A15's ARM instructions are word-aligned.
-	This means that the size of the instructions are and must be divisible by 4.
+	The A15's ARM instructions are word-aligned .
+	This means the address of memory an instruction is allowed access must be divisible by 4.
 	Since multiple instruction sets are supported, it is wise to mention that Thumb instructions are halfword-aligned.
-	As for Java bytecode instructions, they are simply be byte aligned.
+	As for Java byte-code instructions, they are simply be byte aligned.
 	This means it has no real limitations of where memory addresses can be accessed.
 	Unaligned memory is supported with special instructions with ARMv7's instruction set.
 
-%\chapter{Instruction Format}
 {\let\clearpage\relax\chapter{Instruction Format}}
 
 	% check out programmer's model in chapter 3 (file : ./ArmCortex15_manual.pdf)
-	Since the ARMv7-A architecture is based off of the RISC design where all instructions are the same size.
-	However, since the Cortex A15 extends this base ARMv7-A architecture, 64-bit instructions also exist.
-	A 4-bit condition code field is set to indiciate how an instruction must be executed.
-	This is only during virtual states of processing though.
+	Since the ARMv7-A architecture is based off of the RISC design, all instructions are the same size.
+	The Cortex A15 extends this base ARMv7-A architecture to support the Thumb instruction set though \autocite[3-2]{a15man}.
+	This allows 16 bit instructions to be executed as well.
+	For example, this can omit a 4-bit condition code field that is set to indicate how an instruction must be executed in certain situations.
 	Figure 1 is a visual representation of what these instructions look like.
 	
 	\begin{figure}[h]
@@ -223,9 +224,9 @@ Dr. Patricia \textsc{Roden}
 	This can also be explained as the method of which a computer stores multiple-byte data elements.
 	For example, the 4-bit string made up of $2$ 2-bit data elements $0001$, can be read by a computer in little-endian as $4_{10}$. 
 	Alternatively, read as big-endian it would be $1_{10}$.
-	The ARMv7-A architecture exclusivley exhibits little-endian practices.
+	The ARMv7-A architecture exclusively exhibits little-endian practices \autocite[A2-53]{a7man}.
 	The A15 however, has an interesting but dangerous characteristic which gives it the ability to configure itself between little-endian or big-endian.
-	Through the use of ARM and Thumb instruction $SETEND$ $BE$ which translates to 0, or $SETEN$ $LE$ which translates to 1 to decipher which endineness must be observed.
+	Through the use of ARM and Thumb instruction $SETEND$ $BE$ which translates to 0, or $SETEN$ $LE$ which translates to 1 to decipher which endinaness must be observed.
 
 	\section{Data Transfer Instructions}
 	Load and store instructions are utilized to move data from registers to memory.
@@ -252,14 +253,12 @@ Dr. Patricia \textsc{Roden}
 {\let\clearpage\relax\chapter{Registers}}
 %\chapter{Registers}
 
-	% Give numbers 15 & 37
 	Essentially, a register is a place on the processor where data, instructions and state information is held.
-	At any given moment in time, the A15 is said to have access to 16 groups of these high speed memory locations which are 32-bits wide.
+	At any given moment in time, the A15 is said to have access to 16 of these high speed memory locations which are 32-bits wide.
 	Drawing from the concepts introduced in chapter 3, the need for virtualization is essential to todays computing standards.
 	The different modes of execution supported by the A15 allows for this small set of 16 groups of registers to actually be viewed as having a total of 37 groups.
 	There are exactly 7 of these different modes which are subdivided further into either a \textit{User} mode, or \textit{Privileged} mode.
 	
-	%President giving orders, opposed to a criminal executing instructions
 	Modes of execution can be explained by example.
 	Not everyone in the United States of America has the privileged to round up its armed forces to invade another country.
 	A repeat-offense criminal instructing a powerful fleet of soldiers ready to go to war is quite different from a decorated five star general being in command.
@@ -270,7 +269,7 @@ Dr. Patricia \textsc{Roden}
 	These multiple instruction sets and modes supported by the A15 heavily influenced the design of its registers.
 	The A15 manual often times references various other manuals to describe its own details.
 	Due to the wide variety of references the A15 manual uses to describe its registers, I will only be explaining how its main instruction architecture utilizes these registers.
-	Figure 2, found in the ARMv7 manual, describe these 15 groups registers.
+	Figure 2 describe these 15 groups registers.
 
 	\begin{figure}[h]
 		\centering
@@ -284,15 +283,15 @@ Dr. Patricia \textsc{Roden}
 	This means that these registers can manipulated by however they see fit.
 	As for the banked registers, they have access to registers which contain sensitive system data.
 
-	Registers 13 through 15 can be easily described as containing this sensitive data.
+	Registers 13 through 15 can be easily described as containing this sensitive data \autocite[A2-45]{a7man}.
 	These 3 groups of registers are reserved for being the stack pointer registers, link registers, and program counter respectively.
 	When manipulated incorrectly, personal security, hardware damage, and other various devastating events may occur.
 	Referring back to the example of the common criminal opposed to the general being in command, it can be seen why different modes exists.
 
 	The user mode is the only unprivileged mode in the A15.
+	This is where the general purpose registers 0-7 can be manipulated at will.
 	This is usually the mode which application programs are ran in.
-	As for the other six, they are all privileged.
-	Meaning that they have access to all system resources and are able to switch freely between other modes.
+	As for the other five, registers 8-12, they are all banked register \autocite[123]{riscGuide}.
 
 	For further reading acronym definitions are, Sivarama P. Dandamudi does a beautiful job explaining these terms in his book, \textit{"\underline{Guide to RISC Processors}"}.
 
@@ -331,7 +330,6 @@ Dr. Patricia \textsc{Roden}
 
 
 {\let\clearpage\relax\chapter{Addressing Modes}}
-%\chapter{Addressing Modes}
 
 	Addressing modes allow us to specify where instruction operands are located.
 	Without addressing modes, it would not be possible access data because the computer wouldn't know where to seek the information.
@@ -344,7 +342,7 @@ Dr. Patricia \textsc{Roden}
 		It is noteworthy to say the base register remains unchanged.
 
 	\section{Pre-indexed addressing}
-		In the ARMv7A reference manual, it describes this method of addressing as follows:
+		In the ARMv7A reference manual \autocite{a7man}, it describes this method of addressing as follows:
 		"The offset value here is applied to an address obtained from the base register.
 		The result is used as the address for the memory access, and written back into the base register."
 
@@ -355,19 +353,18 @@ Dr. Patricia \textsc{Roden}
 In each mode of addressing, all rules of alignment and endianess applies.
 
 {\let\clearpage\relax\chapter{Unusual Features}}
-%\chapter{Unusual Features}
 
 	It was previously stated that not all recent computers completely encompass one principle.
 	With the versatility the A15 portrays, it is only natural that I found instructions that do not follow the RISC philosophy.
 	It is seen with the $ldm$ instruction that it can execute multiple operations with one instruction.
 
-\chapter{Major Contribution to Architecture Design: Low Energy Computing}
+{\let\clearpage\relax\chapter{Major Contribution to Architecture Design: Low Energy Computing}}
 
 	The ENIAC was the first all-electronic, general-purpose digital computer.
 	In 1946, this machine used 17,468 vacuum tubes that malfunctioned roughly every 20 hours which spanned 1800 square feet of warehouse space.
 	This 30 ton machine that ate 174 kilowatts of power had a single processor which ran at 0.1 Hz.
 	All of these facts become somewhat of a joke compared to the A15 processor.
-	Now being outfitted in todays mobile smart phones and calculators, which fits in the back pocket of a pair of Levi jeans.
+	The A15 is being outfitted in todays mobile smart phones and calculators which fit in the back pocket of a pair of Levi jeans.
 	
 	The \textit{big.LITTLE} architecture developed by ARM is one of the key components behind how low energy computing is achieved.
 	As seen throughout this text, ARM has the ability to combine systems seamlessly.
@@ -377,11 +374,10 @@ In each mode of addressing, all rules of alignment and endianess applies.
 
 	The A15 is the clear winner when it comes to high performance processing power.
 	However, high battery power consumption is the price to pay to support this.
-	The A7 processor is not as processing intensive as the A15, but by no means is it a chump.
-	Especially when it is in idle states.
-	This driving concept of assigning processing intensive tasks to the A15 while applications which are idle utilize the A7 for its computing needs.
+	The A7 processor specs are sub par compared to the A15, but this is good because idle states consume less energy.
+	This driving concept of assigning processing intensive tasks to the A15 while applications that require less processing power utilize the A7 for its computing needs.
 
-	Clearly it is seen why the A15 processor can be classified as the \textit{big} component of the architecture.
+	Clearly, it can be seen why the A15 processor is classified as the \textit{big} component of the architecture.
 	It's computing power is unparalleled to its predecessor.
 	However, the A7 cannot be counted out because it consumes much less energy to power itself.
 
@@ -389,7 +385,7 @@ In each mode of addressing, all rules of alignment and endianess applies.
 
 	% Interview with Steve Furber. ACM digital library pdf.
 	Ph.D. Steve Furber, one of the principal designers of the BBC Microcomputer System and ARM microprocessors when the "A" in ARM stood for 
-	"Acorn", had this to say when interviewed by Jason Fitzpatrick. "The ARM architecture is the most widely used 32-bit RISC architecture and the ARM processor's power efficiency—performing the same amount of work as other 32-bit processors while consuming one-tenth the amount of electricity—has resulted in the widespread dominant use of the ARM processor in mobile devices and embedded systems." This whole research paper is based off of fascination related to ubiquitous computing. So when I decided to conduct research on what was behind the popular Samsung's Galaxy S4 successful mobile phone design, it was not a coincidence to find out it was ARM behind the processor design.
+	"Acorn", had this to say when interviewed by Jason Fitzpatrick \autocite[1]{steveFurber}. "The ARM architecture is the most widely used 32-bit RISC architecture and the ARM processor's power efficiency—performing the same amount of work as other 32-bit processors while consuming one-tenth the amount of electricity—has resulted in the widespread dominant use of the ARM processor in mobile devices and embedded systems." This whole research paper is based off of fascination related to ubiquitous computing. So when I decided to conduct research on what was behind the popular Samsung's Galaxy S4 successful mobile phone design, it was not a coincidence to find out it was ARM behind the processor design.
 
-
+\printbibliography
 \end{document} 

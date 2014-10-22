@@ -1,0 +1,113 @@
+% $ biblatex auxiliary file $
+% $ biblatex version 1.7 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated as
+% required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+\entry{a7man}{book}{}
+  \list{organization}{1}{%
+    {ARM}%
+  }
+  \field{sortinit}{A}
+  \true{singletitle}
+  \field{title}{ARM Architecture Reference Manual}
+  \field{year}{2005}
+\endentry
+
+\entry{a15man}{book}{}
+  \list{organization}{1}{%
+    {ARM}%
+  }
+  \field{sortinit}{A}
+  \true{singletitle}
+  \field{title}{ARM Cortex-A15 MPCore Processor}
+  \field{year}{2005}
+\endentry
+
+\entry{riscGuide}{book}{}
+  \name{author}{1}{}{%
+    {{}%
+     {Dandamudi}{D.}%
+     {Sivarama~P.}{S.~P.}%
+     {}{}%
+     {}{}}%
+  }
+  \list{publisher}{1}{%
+    {Springer Science+Business Media, Inc.}%
+  }
+  \strng{namehash}{DSP1}
+  \strng{fullhash}{DSP1}
+  \field{sortinit}{D}
+  \true{singletitle}
+  \field{booktitle}{Guide to RISC Processors}
+  \field{title}{Guide to RISC Processors}
+  \list{location}{1}{%
+    {New York}%
+  }
+  \field{year}{2005}
+  \field{origyear}{1973}
+\endentry
+
+\entry{steveFurber}{article}{}
+  \name{author}{1}{}{%
+    {{}%
+     {Fitzpatrick}{F.}%
+     {Jason}{J.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{FJ1}
+  \strng{fullhash}{FJ1}
+  \field{sortinit}{F}
+  \true{singletitle}
+  \field{number}{5}
+  \field{title}{An Interview with Steve Furber}
+  \field{volume}{54}
+  \field{journaltitle}{Communications of the ACM}
+  \field{year}{2011}
+\endentry
+
+\entry{classtext}{book}{}
+  \name{author}{2}{}{%
+    {{}%
+     {{Lobur}}{L.}%
+     {Julia}{J.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {{Null}}{N.}%
+     {Linda}{L.}%
+     {}{}%
+     {}{}}%
+  }
+  \list{publisher}{1}{%
+    {Jones \& Bartlett Learning}%
+  }
+  \strng{namehash}{LJNL1}
+  \strng{fullhash}{LJNL1}
+  \field{sortinit}{L}
+  \true{singletitle}
+  \field{edition}{Fourth Edition}
+  \field{title}{The Essentials of Computer Organization and Architecture}
+  \list{location}{1}{%
+    {Wall Street, New York}%
+  }
+  \field{year}{2015}
+\endentry
+
+\lossort
+\endlossort
+
+\endinput
