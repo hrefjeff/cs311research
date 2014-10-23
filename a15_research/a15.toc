@@ -18,44 +18,44 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {2.3.3}Advanced SIMD (Single Instruction Multiple Data)}{7}{subsection.2.3.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.3.4}VFP (Vector Floating Point Co processor Extension) \& NEON}{8}{subsection.2.3.4}
+\contentsline {subsection}{\numberline {2.3.4}VFP (Vector Floating Point Co processor Extension) \& NEON}{7}{subsection.2.3.4}
 \defcounter {refsection}{0}\relax 
 \contentsline {chapter}{\numberline {3}Memory Specifications}{8}{chapter.3}
 \defcounter {refsection}{0}\relax 
 \contentsline {chapter}{\numberline {4}Instruction Format}{9}{chapter.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.1}Endianess}{10}{section.4.1}
+\contentsline {section}{\numberline {4.1}Endianess}{9}{section.4.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.2}Data Transfer Instructions}{10}{section.4.2}
+\contentsline {section}{\numberline {4.2}Data Transfer Instructions}{9}{section.4.2}
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {4.2.1}Moving}{10}{subsection.4.2.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.3}Arithmetic}{10}{section.4.3}
+\contentsline {subsection}{\numberline {4.2.2}Arithmetic}{10}{subsection.4.2.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.4}Comparison}{11}{section.4.4}
+\contentsline {subsection}{\numberline {4.2.3}Comparison}{10}{subsection.4.2.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.5}Branch}{11}{section.4.5}
+\contentsline {subsection}{\numberline {4.2.4}Branch}{10}{subsection.4.2.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.6}Stack Operations}{11}{section.4.6}
+\contentsline {subsection}{\numberline {4.2.5}Stack Operations}{10}{subsection.4.2.5}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {5}Registers}{11}{chapter.5}
+\contentsline {chapter}{\numberline {5}Registers}{10}{chapter.5}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {6}Data Types}{13}{chapter.6}
+\contentsline {chapter}{\numberline {6}Data Types}{12}{chapter.6}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {6.1}Register Data Types}{13}{section.6.1}
+\contentsline {section}{\numberline {6.1}Register Data Types}{12}{section.6.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {6.2}Pseudo-Instruction Data Types}{14}{section.6.2}
+\contentsline {section}{\numberline {6.2}Pseudo-Instruction Data Types}{13}{section.6.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {7}Addressing Modes}{14}{chapter.7}
+\contentsline {chapter}{\numberline {7}Addressing Modes}{13}{chapter.7}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {7.1}Offset addressing}{15}{section.7.1}
+\contentsline {section}{\numberline {7.1}Offset addressing}{13}{section.7.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {7.2}Pre-indexed addressing}{15}{section.7.2}
+\contentsline {section}{\numberline {7.2}Pre-indexed addressing}{14}{section.7.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {7.3}Post-indexed addressing}{15}{section.7.3}
+\contentsline {section}{\numberline {7.3}Post-indexed addressing}{14}{section.7.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {8}Unusual Features}{15}{chapter.8}
+\contentsline {chapter}{\numberline {8}Unusual Features}{14}{chapter.8}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {9}Major Contribution to Architecture Design: Low Energy Computing}{16}{chapter.9}
+\contentsline {chapter}{\numberline {9}Major Contribution to Architecture Design: Low Energy Computing}{14}{chapter.9}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {10}Uses/Applications: Mobile Computing}{17}{chapter.10}
+\contentsline {chapter}{\numberline {10}Uses/Applications: Mobile Computing}{15}{chapter.10}

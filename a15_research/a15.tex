@@ -1,17 +1,45 @@
 \documentclass[12pt]{scrreprt} 
 \usepackage{tikz}
 \usepackage{caption}
-\usepackage[margin=1in]{geometry}
+\usepackage[margin=1in,bmargin=1in,lmargin=1in,rmargin=1in]{geometry}
 \usepackage{setspace}
 \usepackage[style=mla, noremoteinfo=true]{biblatex}
 \usepackage{hyperref}
 \usepackage[american]{babel}
 \usepackage{csquotes}
+
+\renewcommand*{\pagemark}{}
+
+\usepackage{fancyhdr}
+\fancypagestyle{plain}{%
+\fancyhf{}
+\fancyhead[R]{Allen \thepage}
+\fancyfoot{}
+\fancyfoot[C]{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}}
+
+\pagestyle{plain}
+
+\renewcommand*{\chapterheadstartvskip}{\vspace*{1cm}}
+\renewcommand*{\chapterheadendvskip}{\vspace*{2cm}}
+
+%titlesec: chapter/section package to manipulate sections
+\usepackage{titlesec}
+\titleformat{\chapter}[block]
+	{\normalfont\bfseries\filright}{\thechapter}{12pt}{}
+\titleformat{\section}[block]
+	{\normalfont\bfseries\filright}{\thesection}{12pt}{}
+\titleformat{\subsection}[block]
+	{\normalfont\bfseries\filright}{\thesubsection}{12pt}{}
+\titlespacing*{\chapter}{0pt}{10pt}{10pt}
+
 \addbibresource{a15.bib}
 \doublespacing
 \captionsetup[figure]{labelformat=empty}
-\usetikzlibrary{automata,positioning}
-\PassOptionsToPackage{usenames,dvipsnames,svgnames}{xcolor}
+
+%\usetikzlibrary{automata,positioning}
+%\PassOptionsToPackage{usenames,dvipsnames,svgnames}{xcolor}
 
 
 \begin{document} 
@@ -63,14 +91,20 @@ Dr. Patricia \textsc{Roden}
 
 \tableofcontents
 
-\chapter{History}
+\pagebreak
+\begin{flushleft}
+Jeffrey Allen\\
+Dr. Patricia Roden\\
+Computer Science 311\\
+22 October 2014
+\end{flushleft}
 
-	% Describe very beginning
-	In 1985, the Acorn Computer Group birthed the ARM architecture in the United Kingdom. This was only the beginning to
-	the quick pace ARM began developing and evolving their architectural designs. Two short years afterwards, Acorn 
-	released its first RISC processor that was optimized for low-cost personal computers. Following this, in 1990, ARM 
-	which originally stood for Acorn RISC Machine developed its Advanced RISC Machine. This design defined its 32-bit RISC-like
-	architecture generally used today.
+\centerline{Cortex A15 Processor}
+
+{\let\clearpage\relax\chapter{History}}
+
+% Describe very beginning
+In 1985, the Acorn Computer Group birthed the ARM architecture in the United Kingdom. This was only the beginning to the quick pace ARM began developing and evolving their architectural designs. Two short years afterwards, Acorn released its first RISC processor that was optimized for low-cost personal computers. Following this, in 1990, ARM which originally stood for Acorn RISC Machine developed its Advanced RISC Machines. This design defined its 32-bit RISC-like architecture generally used today.
 
 	% Describe middle to end in one paragraph
 	According to Linda Null and Julia Lobur there are multiple families of ARM architectures and processors \autocite[327]{classtext}.
@@ -85,7 +119,7 @@ Dr. Patricia \textsc{Roden}
 
 {\let\clearpage\relax\chapter{Instruction Sets}}
 
-	I'll begin this section with explaining that an interface is an intermediary between two entities.
+		I'll begin this section with explaining that an interface is an intermediary between two entities.
 	Humans have utilized this concept in order to build rockets which have reached mars, create heart rate monitors, and even predict weather. 
 	A computer's processor is only designed to fetch, decode and execute various instructions.
 	Before all of that, it must first be able to understand what its supposed to do.
@@ -94,14 +128,8 @@ Dr. Patricia \textsc{Roden}
 	Essentially, this is the agreed-upon interface designed for a machine allows software to able to communicate with the hardware that executes it\autocite[233]{classtext}.
 
 	\section{RISC Vs. CISC}
-
 	% Dandamudi example pg 5
-	There are two types of processor design philosophies \autocite[5]{riscGuide}.
-	One of them is the RISC, or the Reduced Instruction Set Computer design.
-	The other is CISC, or the Complex Instruction Set Computers design.
-	CISC systems can be described through an example.
-	Subtracting two integers is considered "simple".
-	Then there is a type of instruction which can be categorized as complex, which can be found in a bubble sort swap routine.
+	There are two types of processor design philosophies \autocite[5]{riscGuide}. One of them is the RISC, or the Reduced Instruction Set Computer design. The other is CISC, or the Complex Instruction Set Computers design. CISC systems can be described through an example. Subtracting two integers is considered "simple". Then there is a type of instruction which can be categorized as complex, which can be found in a bubble sort swap routine.
 
 	
 	Bubble sort essentially sorts a list by taking an array $ A $, copying one element $ \alpha $ located at index $ A_{x} $ and "bubbles" it up it its correct position.
@@ -235,14 +263,14 @@ Dr. Patricia \textsc{Roden}
 	Flags are set in the CPSR if an instruction tries to illegally access data.
 	This method of exception handling has worked quite well for ARM since it has been around for close to 30 years.
 
-	\section{Arithmetic}
+	\subsection{Arithmetic}
 		Add, subtract, and multiply instructions are supported by the ARMv7A architecture.
-	\section{Comparison}
+	\subsection{Comparison}
 		This is also known as logical and bit instructions.
-	\section{Branch}
+	\subsection{Branch}
 		Instructions of this type all manipulate the control flow of a program.
 		This includes instructions such as $BL$ which will which branch with a link back to the original program.
-	\section{Stack Operations}
+	\subsection{Stack Operations}
 		It can be seen with the complex $STM$ instruction that more than one operation is being executed.
 		With the help of register 13, the stack pointer allows for this instruction treat the registers as a stack and push multiple sets of data onto it.
 
@@ -271,7 +299,7 @@ Dr. Patricia \textsc{Roden}
 
 	\begin{figure}[h]
 		\centering
-			\includegraphics[width=0.5\textwidth]{registers}
+			\includegraphics[width=0.6\textwidth]{registers}
 		\caption{Figure 2}
 	\end{figure}
 
