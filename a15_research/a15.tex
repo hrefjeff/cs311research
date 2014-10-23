@@ -8,9 +8,7 @@
 \usepackage[american]{babel}
 \usepackage{csquotes}
 \addbibresource{a15.bib}
-%\usepackage{mla13}
 \doublespacing
-%\linespread {1.5}
 \captionsetup[figure]{labelformat=empty}
 \usetikzlibrary{automata,positioning}
 \PassOptionsToPackage{usenames,dvipsnames,svgnames}{xcolor}
@@ -122,7 +120,7 @@ Dr. Patricia \textsc{Roden}
 	\section{Main ISA: ARMv7-A}
 
 	At the end of the day, it is all about communication.
-	Moore's Law, states that the density of transistors on an integrated circuit is doubling ever 18 months.
+	Moore's Law, states that the density of transistors on an integrated circuit is doubling every 18 months.
 	This law explains one of the main reasons why communication between humans and computers has changed, and continues to change so rapidly.
 	The concept applied to the range of years between 1960 to 2014 describes a fair amount exponential increase in transistors, or rather, methods of communication.
 	As Linda Null and Julia Lobur point out though, RISC in today's society something of a misnomer \autocite[327]{classtext}.
@@ -142,7 +140,7 @@ Dr. Patricia \textsc{Roden}
 	Why have support for virtual environments though? 
 	As stated before, the Cortex-A series is a family of processors which is only evolving with the times.
 	More and more computation must be supported, so a processor needs to be versatile enough to keep up with the designs.
-	Being that utilizes it multiple instruction sets, or extensions of them. 
+	The A series supports multiple instruction sets, or extensions of them, in order to live on.
 	These include the ARMv7-A, Thumb, ThumbEE, NEON, and VFP instruction sets. 
 	ARM's A15 reference manual indicates on various occasions when to refer to other documentation sources to describe it's own features.
 
@@ -158,7 +156,7 @@ Dr. Patricia \textsc{Roden}
 			
 		\subsection{Advanced SIMD (Single Instruction Multiple Data)}
 			The advanced SIMD extension is a media and signal processing architecture.
-			This set of instructions instructions adds the functionality targeted primarily at audio, video, 3-D, graphics, image, and speech processing.
+			This set of instructions adds the functionality targeted primarily at audio, video, 3-D, graphics, image, and speech processing.
 		
 		\subsection{VFP (Vector Floating Point Co processor Extension) \& NEON}
 			In essence, all these instruction sets are designed to do is make computation highly efficient.
@@ -219,7 +217,7 @@ Dr. Patricia \textsc{Roden}
 	% ARMv7 reference manual pg. A2-53/A3-111
 	% Explanation came from book
 	\section{Endianess}
-	In the many layers of abstraction that exist in a computer, the endianess of an architecture must be carefully taken into consideration.
+	In the many layers of abstraction that exist in a computer, the endianness of an architecture must be carefully taken into consideration.
 	The endianess of an architecture refers to the "byte order" of the computer.
 	This can also be explained as the method of which a computer stores multiple-byte data elements.
 	For example, the 4-bit string made up of $2$ 2-bit data elements $0001$, can be read by a computer in little-endian as $4_{10}$. 
@@ -290,8 +288,8 @@ Dr. Patricia \textsc{Roden}
 
 	The user mode is the only unprivileged mode in the A15.
 	This is where the general purpose registers 0-7 can be manipulated at will.
-	This is usually the mode which application programs are ran in.
-	As for the other five, registers 8-12, they are all banked register \autocite[123]{riscGuide}.
+	Application programs are usually run under these set of conditions.
+	As for the other five, registers 8-12, they are all banked registers \autocite[123]{riscGuide}.
 
 	For further reading acronym definitions are, Sivarama P. Dandamudi does a beautiful job explaining these terms in his book, \textit{"\underline{Guide to RISC Processors}"}.
 
@@ -384,8 +382,7 @@ In each mode of addressing, all rules of alignment and endianess applies.
 {\let\clearpage\relax\chapter{Uses/Applications: Mobile Computing}}
 
 	% Interview with Steve Furber. ACM digital library pdf.
-	Ph.D. Steve Furber, one of the principal designers of the BBC Microcomputer System and ARM microprocessors when the "A" in ARM stood for 
-	"Acorn", had this to say when interviewed by Jason Fitzpatrick \autocite[1]{steveFurber}. "The ARM architecture is the most widely used 32-bit RISC architecture and the ARM processor's power efficiency—performing the same amount of work as other 32-bit processors while consuming one-tenth the amount of electricity—has resulted in the widespread dominant use of the ARM processor in mobile devices and embedded systems." This whole research paper is based off of fascination related to ubiquitous computing. So when I decided to conduct research on what was behind the popular Samsung's Galaxy S4 successful mobile phone design, it was not a coincidence to find out it was ARM behind the processor design.
+	Ph.D. Steve Furber, one of the principal designers of the BBC Microcomputer System and ARM microprocessors when the "A" in ARM stood for "Acorn", had this to say when interviewed by Jason Fitzpatrick \autocite[1]{steveFurber}. "The ARM architecture is the most widely used 32-bit RISC architecture and the ARM processor's power efficiency performing the same amount of work as other 32-bit processors while consuming one-tenth the amount of electricity has resulted in the widespread dominant use of the ARM processor in mobile devices and embedded systems." This whole research paper is based off of fascination related to ubiquitous computing. So when I decided to conduct research on what was behind the popular Samsung's Galaxy S4 successful mobile phone design, it was not a coincidence to find out it was ARM behind the processor design.
 
 \printbibliography
-\end{document} 
+\end{document}
